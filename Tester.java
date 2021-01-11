@@ -10,5 +10,16 @@ public class Tester {
     for (int i = 0; i < numbers.length; i++) {
       System.out.println("length of " + numbers[i] + " is " + Radix.length(numbers[i]));
     }
+
+    for (int i = 0; i < numbers.length; i++) { //for all elements in [] numbers
+      for (int j = 0; j < Radix.length(numbers[i]); j++) { //get ones, tens, etc. digit of the number
+        if (j == 0) System.out.print("ones digit: ");
+        else if (j == 1) System.out.print("tens digit: ");
+        else if (j == 2) System.out.print("hundreds digit: ");
+        else if (j == 3) System.out.print("thousands digit: ");
+        System.out.println(Radix.nth(numbers[i], j));
+      }
+      System.out.println();
+    }
   }
 }
