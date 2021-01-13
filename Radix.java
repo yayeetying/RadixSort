@@ -52,6 +52,7 @@ public class Radix {
     //start with the LSD (least significant digit): ones column --> tens --> hundreds, etc
     SortableLinkedList[] buckets = new SortableLinkedList[10]; //there are 10 SortableLinkedLists in this []
 
+    //initializing every bucket in buckets
     for (int i = 0; i < buckets.length; i++) {
       buckets[i] = new SortableLinkedList();
     }
@@ -66,6 +67,16 @@ public class Radix {
   }
 
   public static void radixSort(SortableLinkedList data) {
+    SortableLinkedList negData = new SortableLinkedList();
 
+    for (int i = data.size()-1; i >= 0; i++) {
+      if (data.get(i) < 0) { //if the number is negative
+        negData.add(data.remove(i)*-1); //make those negative numbers temporarily positive
+      }
+    }
+
+    radixSortSimple(data); //data = SortableLinkedList that holds only the positive values
+    radixSortSimple(negData); //negData = SortableLinkedList that holds only the negative values
+    
   }
 }
