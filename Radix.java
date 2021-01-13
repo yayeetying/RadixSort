@@ -1,14 +1,17 @@
 public class Radix {
 
   //get nth digit of an int, where 0 is the ones column, 1 is the tens column etc
+  //if number is negative, returns the positive version of the nth digit
   public static int nth(int n, int col) {
-    return (int)( ( n % Math.pow(10, col+1) ) / Math.pow(10, col) );
+    if (n >= 0) return (int)( ( n % Math.pow(10, col+1) ) / Math.pow(10, col) );
+    else return (int)( ( n % Math.pow(10, col+1) ) / Math.pow(10, col) ) * -1;
   }
 
   //returns the number of digits in n
   public static int length(int n) {
     if (n == 0) return 1;
-    else {return (int)(Math.log10(n)) + 1;}
+    if (n < 0) n = Math.abs(n);
+    return (int)(Math.log10(n)) + 1;
   }
 
   //big woah: you aren't actually sorting the buckets, etc. in this method!

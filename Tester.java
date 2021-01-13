@@ -57,6 +57,9 @@ public class Tester {
     System.out.println(nums2.toString());
     Radix.radixSortSimple(nums2);
     System.out.println(nums2.toString());
+    System.out.println(Radix.nth(-209,0));
+    System.out.println(Radix.nth(-209,1));
+    System.out.println(Radix.nth(-209,2));
 
   }
 }
