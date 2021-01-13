@@ -46,5 +46,9 @@ public class Tester {
       System.out.println();
     }
     System.out.println(nums.toString());
+    //System.out.println(Radix.clear(nums).toString());
+    Radix.radixSortSimple(nums);
+    System.out.println(nums.toString());
+
   }
 }

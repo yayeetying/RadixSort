@@ -36,7 +36,8 @@ public class Radix {
 
   //clears SortableLinkedList; ****see if can do O(1)
   private static SortableLinkedList clear(SortableLinkedList data) {
-    for (int i = 0; i < data.size(); i++) {
+    int count = data.size();
+    for (int i = 0; i < count; i++) {
       data.remove(data.size()-1);
     }
     return data;
@@ -48,9 +49,13 @@ public class Radix {
     //start with the LSD (least significant digit): ones column --> tens --> hundreds, etc
     SortableLinkedList[] buckets = new SortableLinkedList[10]; //there are 10 SortableLinkedLists in this []
 
+    for (int i = 0; i < buckets.length; i++) {
+      buckets[i] = new SortableLinkedList();
+    }
+
     for (int i = 0; i < longest(data); i++) { //for number of columns needed to pass
       for (int k = 0; k < data.size(); k++) { //for every element in data
-        buckets[nth(data.get(k), i)].add(data.get(k));
+        buckets[ nth ( data.get(k), i ) ].add(data.get(k));
       }
       merge(clear(data), buckets);
     }
