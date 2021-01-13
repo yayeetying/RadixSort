@@ -60,4 +60,8 @@ public class Radix {
       merge(clear(data), buckets);
     }
   }
+
+  public static void radixSort(SortableLinkedList data) {
+
+  }
 }
