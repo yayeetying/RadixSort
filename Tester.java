@@ -21,5 +21,30 @@ public class Tester {
       }
       System.out.println();
     }
+    System.out.println(Radix.nth(1, 8)); //finding tenths place of 8
+    System.out.println(Radix.nth(2, 8));
+    System.out.println(Radix.nth(2, 18));
+    System.out.println("~~~~~~~~~~~~~~~~~~~~~");
+
+    //big distinction!
+    SortableLinkedList bucket = new SortableLinkedList(); //this creates a singular SortableLinkedList
+    System.out.println(bucket.size());
+
+    SortableLinkedList[] buckets = new SortableLinkedList[10]; //this creates 10 SortableLinkedLists!
+    System.out.println(buckets.length);
+
+    System.out.println("~~~~~~~~~~~~~~~~~~~~~");
+    SortableLinkedList nums = new SortableLinkedList();
+    nums.add(12);     nums.add(34);     nums.add(42);     nums.add(32);
+    nums.add(44);     nums.add(41);     nums.add(34);     nums.add(11);
+    nums.add(32);     nums.add(23);     nums.add(87);     nums.add(50);
+    nums.add(77);     nums.add(58);     nums.add(8);
+    for (int j = 0; j < 3; j++) { //get ones place, then tens place, then hundreds place of all numbers in nums
+      for (int i = 0; i < nums.size(); i++) {
+        System.out.print(Radix.nth(nums.get(i), j) + " ");
+      }
+      System.out.println();
+    }
+    System.out.println(nums.toString());
   }
 }
