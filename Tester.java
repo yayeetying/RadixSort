@@ -49,6 +49,14 @@ public class Tester {
     //System.out.println(Radix.clear(nums).toString());
     Radix.radixSortSimple(nums);
     System.out.println(nums.toString());
+    System.out.println();
+
+    SortableLinkedList nums2 = new SortableLinkedList();
+    nums2.add(10);     nums2.add(52);     nums2.add(5);     nums2.add(209);
+    nums2.add(19);     nums2.add(44);
+    System.out.println(nums2.toString());
+    Radix.radixSortSimple(nums2);
+    System.out.println(nums2.toString());
 
   }
 }

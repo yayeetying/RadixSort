@@ -58,6 +58,7 @@ public class Radix {
         buckets[ nth ( data.get(k), i ) ].add(data.get(k));
       }
       merge(clear(data), buckets);
+      //System.out.println(data.toString());
     }
   }
 
