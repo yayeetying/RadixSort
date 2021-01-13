@@ -37,11 +37,11 @@ public class Radix {
     }
 
     for (int i = 0; i < passes; i++) {
-      for (int j = 0; j < data.size(); i++) {
+      while (data.size() != 0) {
         int ans = data.remove(0);
         buckets[ nth(ans, i) ].add(ans);
         if (i == 0) { //find max length in the first pass
-          if (length(ans) > passes) passes = length(ans);
+          if (length(ans) > passes) passes = length(ans)+1;
         }
       }
       merge(data, buckets);
