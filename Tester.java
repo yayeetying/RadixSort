@@ -61,5 +61,12 @@ public class Tester {
     System.out.println(Radix.nth(-209,1));
     System.out.println(Radix.nth(-209,2));
 
+    SortableLinkedList nums3 = new SortableLinkedList();
+    nums3.add(-10);     nums3.add(52);     nums3.add(5);     nums3.add(-209);
+    nums3.add(-19);     nums3.add(44);
+    System.out.println(nums3.toString());
+    Radix.radixSort(nums3);
+    System.out.println(nums3.toString());
+
   }
 }

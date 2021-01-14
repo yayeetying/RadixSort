@@ -46,28 +46,33 @@ public class Radix {
       }
       merge(data, buckets);
     }
-
-    // for (int i = 0; i < longest(data); i++) { //for number of columns needed to pass
-    //   for (int k = 0; k < data.size(); k++) { //for every element in data
-    //     buckets[ nth ( data.get(k), i ) ].add(data.get(k));
-    //   }
-    //   merge(clear(data), buckets);
-    //   //System.out.println(data.toString());
-    // }
   }
 
   public static void radixSort(SortableLinkedList data) {
-    // SortableLinkedList negData = new SortableLinkedList();
-    //
-    // for (int i = data.size()-1; i >= 0; i++) {
-    //   if (data.get(i) < 0) { //if the number is negative
-    //     negData.add(data.remove(i)*-1); //make those negative numbers temporarily positive
-    //   }
-    // }
-    //
-    // radixSortSimple(data); //data = SortableLinkedList that holds only the positive values
-    // radixSortSimple(negData); //negData = SortableLinkedList that holds only the negative values
-    //
-    // // for (int i = 0; )
+    SortableLinkedList negData = new SortableLinkedList();
+
+    int origSize = data.size();
+    for (int i = 0; i < origSize; i++) {
+      int ans = data.remove(0);
+      if (ans < 0) { //if the number is negative
+        negData.add(ans);
+      }
+      else {
+        data.add(ans);
+      }
+    }
+
+    radixSortSimple(data); //data = SortableLinkedList that holds only the positive values
+    radixSortSimple(negData); //negData = SortableLinkedList that holds only the negative values
+
+    negData.extend(data);
+    data.extend(negData);
+  }
+
+  private static void reverser(SortableLinkedList data) {
+    int origSize = data.size();
+    for (int i = 0; i < origSize; i++) {
+
+    }
   }
 }
