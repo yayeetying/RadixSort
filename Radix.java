@@ -65,18 +65,15 @@ public class Radix {
     radixSortSimple(data); //data = SortableLinkedList that holds only the positive values
     radixSortSimple(negData); //negData = SortableLinkedList that holds only the negative values
 
-    reverser(negData);
-    negData.extend(data);
-    data.extend(negData);
+    reverser(data, negData);
   }
 
-  private static void reverser(SortableLinkedList data) {
-    //removing from end of SortableLinkedList is O(1) * n terms
-    // = this method is O(n)
-    SortableLinkedList temp = new SortableLinkedList();
-    for (int i = data.size()-1; i >= 0; i--) {
-      temp.add(data.remove(data.size()-1));
+  private static void reverser(SortableLinkedList data, SortableLinkedList negData) {
+    //add negData's values to front of data --> naturally reverses it
+    //adding to front & removing from front are both not O(N^2)
+    int origSize = negData.size();
+    for (int i = 0; i < origSize; i++) {
+      data.add(0, negData.remove(0));
     }
-    data.extend(temp);
   }
 }
